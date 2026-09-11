@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.O.Sangue | Meu Perfil</title>
+    <link rel="shortcut icon" href="img/icon2.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --bg-dark: #f0f2f5;
+            --bg-card: #ffffff;
+            --bg-input: #ffffff;
+            --text-muted: #6c757d;
+            --border: #dee2e6;
+        }
+
+        .profile-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .profile-header {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            border-left: 6px solid var(--primary);
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 140px;
+            height: 140px;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-input);
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 20px rgba(237, 28, 36, 0.3);
+        }
+
+        .upload-btn {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: var(--primary);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 3px solid var(--bg-card);
+            transition: transform 0.2s;
+        }
+
+        .upload-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-info h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+
+        .profile-info p {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .stat-card .value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .history-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .history-card h3 {
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-item span:first-child {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .history-item span:last-child {
+            color: var(--text-muted);
+        }
+
+        #file-input {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <img src="img/icon2.png" alt="Logo do S.O.Sangue" style="height: 60px; margin-left: 20px;">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="doe_agora_doador.html">Doe Agora</a>
+        <a class="nav-link" href="doe_agora_receptor.html">Doe Agora Hospital</a>
+        <a class="nav-link" href="profile.html">Perfil</a>
+        <a class="nav-link" href="login.html">Login/Cadastro</a>
+        <a class="nav-link" href="loginHospital.html">Login/Cadastro Hospitalar</a>
+    </nav>
+
+    <main class="content" style="overflow-y: auto; flex: 1; background: var(--bg-dark); width: 100%;">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="avatar-wrapper">
+                    <img src="img/perfil.png" alt="Avatar" class="avatar" id="profile-img">
+                    <label for="file-input" class="upload-btn">
+                        <span style="font-size: 1.2rem;">📷</span>
+                    </label>
+                    <input type="file" id="file-input" accept="image/*">
+                </div>
+                <div class="profile-info">
+                    <h2>nome</h2>
+                    <p>Doador • São Paulo, SP</p>
+                    <div style="margin-top: 15px;">
+                        <span class="tag urgent" style="font-size: 1.1rem; padding: 8px 20px;">Tipo Sangüíneo:
+                            AB+</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 20px; margin-bottom: 30px;">
+                <div class="stat-card" style="flex: 1;">
+                    <span class="value">12</span>
+                    <span class="label">Doações</span>
+                </div>
+                <div class="stat-card" style="flex: 1;">
+                    <span class="value">48</span>
+                    <span class="label">Vidas Salvas</span>
+                </div>
+                <div class="stat-card" style="flex: 1;">
+                    <span class="value">15</span>
+                    <span class="label">Dias para Doar</span>
+                </div>
+            </div>
+
+            <div class="history-card">
+                <h3>Histórico de Atividade</h3>
+                <div class="history-item">
+                    <span>Hospital das Clínicas</span>
+                    <span>12 Mar 2024</span>
+                </div>
+                <div class="history-item">
+                    <span>Hemocentro Unicamp</span>
+                    <span>05 Out 2023</span>
+                </div>
+                <div class="history-item">
+                    <span>Laboratório Fleury</span>
+                    <span>20 Jun 2023</span>
+                </div>
+            </div>
+            <div class="history-card" style="margin-top: 30px; margin-bottom: 30px;">
+                <h3 style="color: var(--primary);">Editar Perfil</h3>
+                <form class="row g-3" id="edit-profile-form">
+                    <div class="col-md-6">
+                        <label class="form-label" style="color: var(--secondary); font-weight: 600;">CPF:</label>
+                        <input type="text" class="form-control" placeholder="123.456.789-00"
+                            style="background: var(--bg-input); color: var(--secondary); border: 1px solid var(--border);">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" style="color: var(--secondary); font-weight: 600;">Telefone
+                            Celular:</label>
+                        <input type="text" class="form-control" placeholder="(11) 98765-4321"
+                            style="background: var(--bg-input); color: var(--secondary); border: 1px solid var(--border);">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" style="color: var(--secondary); font-weight: 600;">Data de
+                            Nascimento:</label>
+                        <input type="date" class="form-control"
+                            style="background: var(--bg-input); color: var(--secondary); border: 1px solid var(--border);">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" style="color: var(--secondary); font-weight: 600;">Tipo
+                            Sanguíneo:</label>
+                        <select class="form-select"
+                            style="background: var(--bg-input); color: var(--secondary); border: 1px solid var(--border);">
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+" selected>AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label" style="color: var(--secondary); font-weight: 600;">Endereço Completo:</label>
+                        <input type="text" class="form-control" placeholder="Rua, Número, Bairro, Cidade - UF"
+                            style="background: var(--bg-input); color: var(--secondary); border: 1px solid var(--border);">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" style="color: var(--secondary); font-weight: 600;">Contato de Emergência:</label>
+                        <input type="text" class="form-control" placeholder="(11) 91234-5678"
+                            style="background: var(--bg-input); color: var(--secondary); border: 1px solid var(--border);">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" style="color: var(--secondary); font-weight: 600;">Senha:</label>
+                        <input type="password" class="form-control" placeholder="********"
+                            style="background: var(--bg-input); color: var(--secondary); border: 1px solid var(--border);">
+                    </div>
+                    <div class="col-12 mt-4 text-end">
+                        <button type="button" class="btn px-4 py-2" onclick="alert('Dados atualizados com sucesso!')"
+                            style="background-color: var(--primary); color: white; border: none; font-weight: bold; border-radius: 8px; transition: transform 0.2s;">Salvar
+                            Alterações</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="row m-0 align-items-center">
+        <div class="col-12 col-md-6 text-center text-md-start mb-1 mb-md-0">
+                <p>Telefone: (19) 9 1234-5678</p>
+                <p>E-mail: sosangue.2026@gmail.com</p>
+                <p>&copy; S.O.Sangue, 2026.</p>
+        </div>
+
+        <div class="col-12 col-md-6 text-center text-md-end" style="margin-top: 10px;">
+                <h6 style="text-align: center;">Links da Página:</h6>
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="doe_agora_doador.html">Doe Agora</a>
+                <a class="nav-link" href="doe_agora_receptor.html">Doe Agora Hospital</a>
+                <a class="nav-link" href="profile.html">Perfil</a>
+                <a class="nav-link" href="login.html">Login/Cadastro</a>
+                <a class="nav-link" href="loginHospital.html">Login/Cadastro Hospitalar</a>
+        </div>
+        </div>
+  </footer>
+
+    <script>
+        document.getElementById('file-input').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    document.getElementById('profile-img').src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+
+</html>
